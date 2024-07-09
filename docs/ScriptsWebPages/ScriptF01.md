@@ -10,7 +10,7 @@ nav_order: 301
 
 ## Directory Path To Files-Info Table  
 
-> {: .ghrepo-callout .fs-5 .pl-5 }
+{: .ghrepo-callout .fs-5 .pl-5 }
 	Find this script at [this Github repo].
 
 
