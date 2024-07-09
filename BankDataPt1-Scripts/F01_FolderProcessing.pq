@@ -6,8 +6,7 @@ Result = let
 
 	FldrPath = Text.Trim(dir),
 
-	FolderInfo = Folder.Contents(FldrPath
-		),
+	FolderInfo = Folder.Contents(FldrPath),
 		// NB: C/w `Folder.Files`, `Folder.Contents` ignores sub-directories' contents.
 	// NB: The columns of `Folder.Contents`'s output include: "Content", "Name", "Folder Path", "Date accessed", "Date modified", "Date created", & "Extension". And of course, "Extension" & "Name" will contain `type text` values.
 
