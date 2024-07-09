@@ -1,0 +1,20 @@
+// custom SCSS (or CSS) goes here
+
+.scrolling-div-class {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent line breaks within the container */
+  markdown: "1"; /* Optimistically have this here. However, in my experience, this attribute only works when specified as a native-attribute, not when specified via CSS.*/
+  max-width: none; 
+  max-height: none;
+}
+
+.img-lazy {
+  loading: "lazy"; 
+  max-width: none; 
+  max-height: none;
+}
+
+.img-noloadingppty {
+  max-width: none; 
+  max-height: none;
+}
