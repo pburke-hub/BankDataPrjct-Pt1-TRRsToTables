@@ -10,9 +10,11 @@ nav_order: 301
 
 ## Directory Path To Files-Info Table  
 
-{: .ghrepo-callout }
-	Find this script at [this Github repo].{: .fs-5 .pl-5 }
-
+<!-- {: .ghrepo-callout }
+	Find this script at [this Github repo].{: .fs-5 .pl-5 } -->
+<blockquote markdown="1" >
+	<p markdown="1" class="ghrepo-callout fs-5 pl-5">Find this script at [this Github repo].</p>
+</blockquote>
 
 [this Github repo]: https://github.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/tree/main/BankDataPt1-Scripts 
 
