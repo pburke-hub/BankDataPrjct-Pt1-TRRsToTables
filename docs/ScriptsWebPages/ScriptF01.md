@@ -8,12 +8,15 @@ nav_order: 301
 
 ---
 
+## Directory Path To Files-Info Table
+
 > Find this script at [this Github repo].
 {: .ghrepo-callout .fs-5 .pl-5 }
 
 [this Github repo]: https://github.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/tree/main/BankDataPt1-Scripts 
 
 ## Script Name:
+{: .fs-5}
 F01_FolderProcessing (*F*01 because the script/query gets a functions)
 
 ## Input: 
