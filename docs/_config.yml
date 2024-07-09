@@ -1,0 +1,27 @@
+title: Bank Statements To Summary Table
+description: Part 1 of 'Bank Statements to Financial Statments' Project
+theme: just-the-docs
+
+url: https:///pburke-hub.github.io/BankDataPrjct-Pt1-TRRsToTables
+
+#url: "" # the base hostname & protocol for your site, e.g. http://example.com
+#baseurl: "" # the subpath of your site, e.g. /blog
+
+# Aux links for the upper right navigation
+#aux_links:
+  #Template Repository: https://github.com/just-the-docs/just-the-docs-template
+
+search_enabled: false
+
+# Enable or disable the side/mobile menu globally
+# Nav menu can also be selectively enabled or disabled using page variables or the minimal layout
+nav_enabled: true
+
+# Heading anchor links appear on hover over h1-h6 tags in page content
+# allowing users to deep link to a particular heading on a page.
+heading_anchors: true
+
+callouts:
+  ghrepo-callout:
+    title: github-repo-callout
+    color: yellow
