@@ -38,7 +38,7 @@ In our example it is:
 `"C:\Sample_TRRs"`
 {: .pl-4}
 NB: The enclosing quotation marks denote a `type text` value. 
-{:}
+
 
 ## Output: 
 {: .fs-5}
