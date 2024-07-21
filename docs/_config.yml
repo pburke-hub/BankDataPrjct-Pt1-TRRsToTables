@@ -23,5 +23,5 @@ heading_anchors: true
 
 callouts:
   ghrepo-callout:
-    title: github-repo-callout
+    title: Want to have the script open in another window?
     color: yellow
