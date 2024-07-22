@@ -3,9 +3,53 @@ title: Home
 layout: home
 ---
 
-<!-- If below callout doesn't work, proba needs to be wrapped in a div with markdown="1" --> 
+
+## Learnings from Part 1:
+
+A line ending with "  " or // will have a e-o-line. I.e. Some line spacing, however, not as much spacing as if there's a full blank-line's separation. Also, the spacing created by full separating blank line, doesn't increase/vary if it also has the top lne end with x2 spaces.
+
+  Also, re headers. I think size/level of a heading affects how much top-spacing the heading has. However, we need to set a headings bottom spacing via blank lines or ending with x2 spaces.
+
+Also, I think I'm yet to figure out how to indent plain paragraph elements.
+
+Also re headers. I don't this I can cause them to be indented via spaces before a the #'s.
+
+#### Hmmm ... What about the spaces after the #'s?
+####  I guess we'll
+####    See about that ...
+#### I.e. Above, I tried indenting by x2 spaces, then indenting by x4 spaces. Which on basis that the 1st header was indented by 0 (i.e. not 1) spaces, should work. 
+
+Re lists:
+
+I was surprised that both "1. Item" & "* Item" cause list elements at the same level / with same indentation. However, if they follow each other, then they are considered to be different blocks/divs, and so there's extra spacing between them.  
+Also, ending a bullet point with x2 vs. no spaces has no effect on the spacing between bullet points.
+
+Encouraginly, I saw that after a "* Item" bullet point, I could have a new-line'd para that's indented by x2 spaces, and that causes that para elt to have the same indentation as the bullet point.
+
+Re the numbered list, it's had to make conclusions.
+
+1. My current theory is that re "#. Item" bullet-points, any spaces preceding the # are irrelevant. And it's entirely about the total spaces after the #.
+1.  Thus, this item which has x2 spaces after it, is the next level of list-item.
+1.   And, now I'm using x3 spaces after the "#." this is again next-level / a s double-indented.
+1. While, now I'm back to level 1 / no extra indentation.
+
+Cool. I wonder what happens with the above, if I then add a "#.    Item" I.e. Using x4 spaces to indent.
+
+1. My current theory is that re "#. Item" bullet-points, any spaces preceding the # are irrelevant. And it's entirely about the total spaces after the #.
+1.  Thus, this item which has x2 spaces after it, is the next level of list-item.
+1.   And, now I'm using x3 spaces after the "#." this is again next-level / a s double-indented.
+1. While, now I'm back to level 1 / no extra indentation.
+1.    Did this ruin everything?
+1. Guess we'll see ...
+
+
+##  Part 1:
+
+<!-- If below callout doesn't work, proba needs to be wrapped in a div with markdown="1" - Indeed. The div is necessary. --> 
+<div markdown="1">
 {.ghrepo-callout}
 Just a test home page atm.
+</div>
 
 I've been wanting to get a better grip of indenting. Especially, using bullet points which continue over multiple line breaks / lines.  
 (NB: I ended the above in x2 spaces.) However, I'm ending-line at end of this sentence without any spaces.
