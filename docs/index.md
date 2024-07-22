@@ -3,6 +3,26 @@ title: Home
 layout: home
 ---
 
+## 2nd iteration of deducing:
+
+Re lists
+
+My current theory is that spaces after a bullet point (e.g. "- Item" or "-  Item" or "#. Item" or "#   Item") are only relevant for the 1st bullet point. It affects whether x1, x2, or x3 spaces is the block/div's tab length.  
+However, for 2nd-onwards, any spaces on the rhs are ignored. Instead, it's about how many full tab-lengths are achieved in spaces prior to the bullet point (i.e. the "#" or the "-" or "*" etc.) beginning.
+
+Let's try:
+
+1. Setting tab length as x1 space?
+ 1. Ergo, this is indented.
+  1. And this is double indented.
+1. Back to top-level.
+   1. Now started with x3 spaces. So Triple level.
+1. Back to top-level.
+    1. x4 spaces, so stays as x3-level because that's the max?
+1. Back to top-level.
+      1. x6 spaces, so again, stays as x3-level because that's the max?
+1. Guess we'll see.
+
 
 ## Learnings from Part 1:
 
@@ -45,11 +65,11 @@ Cool. I wonder what happens with the above, if I then add a "#.    Item" I.e. Us
 
 ##  Part 1:
 
-<!-- If below callout doesn't work, proba needs to be wrapped in a div with markdown="1" - Indeed. The div is necessary. --> 
-<div markdown="1">
-{.ghrepo-callout}
+<!-- If below callout doesn't work, proba needs to be wrapped in a div with markdown="1" - Indeed. The div is necessary. 
+<div markdown="1"> <- Concluded this prematurely --> 
+{: .ghrepo-callout}
 Just a test home page atm.
-</div>
+<!-- </div> -->
 
 I've been wanting to get a better grip of indenting. Especially, using bullet points which continue over multiple line breaks / lines.  
 (NB: I ended the above in x2 spaces.) However, I'm ending-line at end of this sentence without any spaces.
