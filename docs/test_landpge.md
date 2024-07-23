@@ -17,10 +17,12 @@ The scripts described here start from a folder of .csv files, and produce a tabl
 This is part of a larger process which aims to go from bank statements (i.e. the .csv files) to financial reports.  
 Preferably, the process would be fully automated. If so, the above would instead describe 'producing data for further processing by the second part our process.' However, our pipeline/process does not know the cause of each bank transaction.
 
+<!-- Going to try to make below fnote x2 lines just to see what happens -->
 Therefore, this process is designed to output data for a human, not a computer.  
 Specifically, we aim to assist a human who will record what financial account each bank transaction relates to.[^account_eg]
 
-[^account_eg]: For example, a receipt might be allocated to the 'Sales' account. Or a payment might be allocated to 'Electricity Expense.'
+[^account_eg]: For example, a receipt might be allocated to the 'Sales' account.
+Or a payment might be allocated to 'Electricity Expense.'
 
 We're described as 'using Power Query,' because the scripts are written in Power Query Formula Language (a.k.a. M Code). Referred to as **PQFLang** in this website.  
 <!-- ^ Link re PQFLang?? -->
