@@ -1,32 +1,35 @@
 ---
 layout: default
 title: The Scripts
+has_children: true
 nav_order: 300
 ---
 
 <!-- For now, let's have this as a parent page. However, ultimately, let's have it as something which has the ToC and highlights the order of and relations of the scripts (E.g. how `Tbl_AddLstCol` is a genuine helper-func.) -->
 
 # The Scripts
-{: .fs-7 .text-center }
+{: .fs-6 .text-center .fw-700 .lh-default }
+
+---
 
 ## General Description Of The Scripts:
-{: .fs-4 }
+{: .fs-5 .lh-default }
 
 PQFLang is a functional language. So unsurprisingly, these scripts give us functions on functions on functions.
 
-Most of the scripts produce a single function. Specifically, a function that specifies for various in-built transformation functions to be applied. While one of the scripts produces a function which specifies for our first script's function to be used, then our second script's function to be used on its output, and so on.
+Most of the scripts create a single function. Specifically, a function that applies a sequence of in-built PQFLang transformation-functions. One of the scripts even creates a function which specifies for our first script's function to be used, then our second script's function to be used on its output, and so on.
 
-An alternative design would be to use a single script. It would still produce a single function, and would specify the same transformations in the same order.  
+An alternative design would be to use a single script. With that script still creating a single function, and specifying for the same sequence of transformations.  
 However, for many intuitive reasons, it's more convenient to have our code organised into separate, small scripts.[^script-size] 
 
 [^script-size]: Personally, with PQFLang, I find approximately 100-lines, including thorough commenting and blank-lines/whitespace, to be my sweet spot.
 
-Perhaps surprisingly, although our design has an extra (and unnecessary) orchestrating script/function which wraps around the scripts/functions, it unlikely comes at much of a cost.[^perf-detail]
+Perhaps surprisingly, although our design has that extra, unnecessary orchestrating script/function, in PQFLang, it unlikely comes at much of a cost.[^perf-detail]
 
 [^perf-detail]: If the same design were used in other, especially lower-level, languages, it indeed would cause the 1st function's output to be held in RAM, while the 2nd function's output also occupies memory, and so on. However, PQFLang, especially being a functional language, and one which often uses lazy evaluation, avoids such an inefficient outcome.
 
 ## x3 Quick Disclaimers:
-{: .fs-4 }
+{: .fs-4 .lh-default }
 
 The scripts usually include some code like:
 ```
@@ -34,34 +37,46 @@ Source = Init_Val,
 Tformd_Val = Source + 1,
 Result = Tformd_Val,
 ```
-Clearly the `Result` line is unnecessary. However, to have the steps of our code previewable in Excel/Power BI, then the script's final line must be the output of the scipt. And within that constraint, such unnecessary lines make it easier if we wish to copy and paste together various sections of code from different scripts.
+{: .lh-tight }
+
+Clearly the `Result`-line is unnecessary. However, as it turns out, if we wish to cut and paste various parts of scripts into a Frankenstein script, (e.g. for debugging) then this form makes it easy to do so, while still being in a form for which Excel/Power BI will preview each step of the script.[^previews]
+
+[^previews]: The 'Power Query Editor,' as accesed via Excel/Power BI, will preview the values of each step/variable of a script, only if the script's final line is also the output of the script.
+  Testing whether x2 spaces will provide a multi-line footnote.
 
 Yes, the extra lines may look weird. However, these lines are usually at the top or bottom of the scripts. So it's easy to exclude them when copying and pasting a script's content into Excel/Power BI.
 
-Secondly, when entering a script into Excel/Power BI, it's best to configure the script/query to *not* load into the spreadsheet/data model. Both Excel and Power BI are more demanding apps than we'd like to be using, and so it's best to avoid writing data when not necessary.
+Secondly, when entering a script into Excel/Power BI, it's best to configure it to *not* load into the spreadsheet/data model.[^not-load] Both Excel and Power BI come with more overhead than we'd like, and writing unnecessary data only exacerbates the overhead.
 
-Third, if using VS Code to work with a script, it will alert to errors within a script. So similarly, if a script references a user-defined *global* variable that will be available within our ultimate Excel/Power BI environment, then VS Code will consider that an erroneous reference to an undefined variable. To prevent this, often the top of a script will include a line like: `External_Script_s_Output = "",`. Thus, VS Code considers the variable to be defined, even though such lines are never going to be added into our Excel/Power BI solution. 
+[^not-load]: When using Excel, this is achieved by opting for 'Create Connection Only,' and by not loading the query/script to any spreadsheet location.
 
-An example of this third disclaimer is what I've called helper-function scripts. I've made these scripts where the code to perform an intuitively distinct task is too long. To get the scripts to be a more manageable length, part of the code is cut out of the long script, and pasted into the helper-function script. And in place of the code that was cut out, is a single call of the helper-function.
+Third, if using VS Code with a script, it will alert to errors within it. So similar to the unnecessary `Result` variable, if a script references a user-defined *global* variable,[^glob-var] then VS Code will consider that an erroneous reference to an undefined variable. To prevent this, often the top of a script will include a line like: `External_Script_s_Output = "",`. Thus, VS Code considers the variable to be defined, even though such lines are never going to be added into our Excel/Power BI solution.
+
+[^glob-var]: By "user-defined global variable," really meaning a variable that's created by a different script. Thus, it will be available within our ultimate Excel/Power BI environment. However, within the single script, it's not defined.
+
+Again, since these hacky workaround are conspicuously located at the top of a script, they're easy to exclude.
+
+An example of this is what I've called helper-function scripts. I've made these scripts where the code of an intuitively distinct task is too long. To get the task's code into scripts of a more manageable length, part of the code is cut out of the long script and pasted into the helper-function script. And in place of the code that was cut out, is a single call of the helper-function.
 
 
 ## How To Use The Scripts:
-{: .fs-4 }
+{: .fs-5 .lh-default }
 
 We need to *manually* copy and paste them into Excel/Power BI. Urghh!
 
 ### What We Can't Use The Scripts To Do:
-{: .fs-3 style="padding-left:1.2em;" }
+{: .fs-4 style="padding-left:1.2em;" .lh-default }
 
-For many languages, the instructions for executing a script can be as simple as:
+For many languages, the instructions for executing a script can be as simple as:{: .lh-tight }
 * Save the script to "C\"; 
 * Open a command line interface (in Windows, e.g. 'Command Prompt' or 'Powershell'); 
 * Type "python C:\my_script.py" and then Enter.
+{: .lh-tight }
 
 Specifically, the language (e.g. Python above) has an interpreter which is able to execute script files.
 
 PQFLang isn't offered as a language that comes with an interpreter. So, in the absence of an interpreter, we need something else to execute our code.  
-As mentioned, Excel and Power BI can be used to execute PQFLang. (In addition, apps such as Visual Studio, and SQL Server Management Studio, can also use PQFLang.^[smss])
+As mentioned, Excel and Power BI can be used to execute PQFLang. (In addition, apps such as Visual Studio, and SQL Server Management Studio, can also use PQFLang.^[smss]\)
 
 [^smss]: Although, an instance of SQL Server Analysis Services needs to be available, in addition to having the VS/SMSS app installed. And even then, to view or archive the output, another app like Excel or Power BI would still be needed.
 
