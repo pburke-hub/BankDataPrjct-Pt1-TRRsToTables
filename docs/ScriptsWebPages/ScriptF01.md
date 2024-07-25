@@ -1,20 +1,19 @@
 ---
 layout: default
 title: F01 - Directory Path To Files-Info Table 
-# parent: Scripts
+parent: The Scripts
 nav_order: 301
-#description: "Something? ..."
-#permalink: /
-
 ---
 
-## Directory Path To Files-Info Table  
+# Directory Path To Files-Info Table  
+{: .fs-6 .text-center .fw-700 .lh-default }
+
+---
 
 <div markdown="1" >
 
 {: .ghrepo-callout }
 Find this script at [this Github repo].
-
 
 [this Github repo]: https://github.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/tree/main/BankDataPt1-Scripts 
 
@@ -26,28 +25,31 @@ Find this script at [this Github repo].
 </blockquote> -->
 
 ## Script Name:
-{: .fs-5}
-F01_FolderProcessing (*F*01 because the script/query gets a functions)
+{: .fs-4 .lh-default }
 
-## Input: 
-{: .fs-5}
+F01_FolderProcessing
+{: .lh-tight }
 
-A simple directory-path `type text` value.
-In our example it is:  
+(*F*01 because the script/query gets a functions.)
+{: .fs-3 .lh-tight }
 
-`"C:\Sample_TRRs"`
-{: .pl-4}
-NB: The enclosing quotation marks denote a `type text` value. 
+## Input:
+{: .fs-4 .lh-default }
 
+A simple directory-path `type text` value.  
+In our example it is: `"C:\Sample_TRRs"`
+
+NB: In PQFLang, enclosing characters in " or ' denotes a `type text` value. 
+{: .fs-3 .lh-tight .mt-1 .pl-4 }
 
 ## Output: 
-{: .fs-5}
-
-A table with rows like the following:
+{: .fs-4 .lh-default .mb-3 }
 
 <!-- Can get below link via: https://github.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/blob/main/docs/assets/images/F01/07_Output_Tbl-520w77h.jpg?raw-true i.e. the ?raw=true url query parameter-->
 
-<div markdown="1" class="scrolling-div-class">
+A table with rows like the following:
+
+<div markdown="1" class="scrolling-div-class my-1">
 ![Output table](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/07_Output_Tbl-520w77h.jpg){: .img-noloadingppty width="520px" height="77px" style="aspect-ratio:520/77;" }
 </div>
 
@@ -58,6 +60,7 @@ However, this small table does not reflect the valuable tasks that this script p
 
 
 ## Observations: 
+{: .fs-5 .lh-default }
 
 1. As the width of the below images reveals, the script retains multiple columns, and only removes them as one of the last steps. This is less efficient than removing those columns ASAP. However, this inefficiency is trumped by the debugging value of being able to preview them (as in the images below). 
 
@@ -68,7 +71,7 @@ However, this small table does not reflect the valuable tasks that this script p
 
 ## Preview Snippets:
 
-<div markdown="1" class="scrolling-div-class">
+<div markdown="1" class="scrolling-div-class my-1">
 ![Folder Info](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/01-FolderInfo-1318w109h.jpg){: .img-lazy width=1318 height=109 style="aspect-ratio:1318/109;" }
 </div>
 
