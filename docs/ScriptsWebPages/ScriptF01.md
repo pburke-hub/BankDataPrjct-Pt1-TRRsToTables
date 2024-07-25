@@ -73,6 +73,7 @@ These include:
 
 [^preview]: Thus the images in the below Preview Snippets section.
 
+{: style="counter-reset:none" }
 2. Similarly, the script could have immediately produced boolean values when the `[HasX29Cols]` column was created. Instead, an extract of the header-name of each file's 28th column is initially displayed. That way, a debugger can scan through the preview, and can easily detect unexpected behaviour, according to whether any of the initial `[HasX29Cols]` columns are text other than "Bank" or "Name".
 
 3. The `try` statement is used so that our error-checking is intuitively displayed in a `record` format. This is demonstrated by the 6th image.
@@ -81,17 +82,49 @@ These include:
 ## Preview Snippets:
 {: .fs-5 .lh-default .mb-4 }
 
-1. `FolderInfo`  
-   PQFLang's `Folder.Contents` function gets a table of information about the files in the folder.  
-   Usefully, The table's rows include:
+{: .mb-1 }
+1. `FolderInfo`: PQFLang's `Folder.Contents` function gets a table of information about the files in the folder. Usefully, The table's rows include:
    * the file-name (inclusive of file extension); 
    * the file's extension (inclusive of the "." prefix); 
    * the file's content as a `type binary` value; and 
    * a `record` containing much more information about the file.
+{: .mb-1 }
 
-<div markdown="1" class="scrolling-div-class my-1">
+<div markdown="1" class="scrolling-div-class">
 ![Folder Info](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/01-FolderInfo-1318w109h.jpg){: .img-lazy width=1318 height=109 style="aspect-ratio:1318/109;" }
+{: .mt-1 }
 </div>
+
+{: style="counter-reset:none" }
+2. `RemoveHiddenFileRows`: Removing hidden files requires transforming the previous `[Attributes]` column from a `record` to its `type logical` (i.e. Boolean) "Hidden" field.
+   Because we're confident that the "Hidden" field will only take values of `true` and `false`, we use the `Table.RemoveMatchingRows` function instead of the `Table.SelectRows` function.  
+   `Table.RemoveMatchingRows` appears to be analogous to the `List.RemoveMatchingItems` function. Unlike `Table.SelectRows`, we're able to specify (via the 3rd argument) that row removal/selection depends *only* on the `[Hidden]` column, and that it depends on equality testing it.[^equal-test] Therefore, under-the-hood, implemented in lower-level languages, this function presumably utilises more assumptions, and thereby uses more specialised and efficient code.  
+   For example, we can see that `Table.SelectRows` uses an iterator that yields all of the table's row (i.e. in `record` form), which is then passed to the function that we provide as `Table.SelectRows`'s 2nd argument. In contrast, `Table.RemoveMatchingRows` apparently uses a more lightweight iterator that only contains the `[Hidden]` field for each row/iteration.  
+   Similarly, `Table.SelectRows` depends on the 2nd-argument UDF that we pass in to it, and it's defined using high-level PQFLang. In contrast, `Table.RemoveMatchingRows` is really provided with a constant value rather. Presumably, its lower-level implementation is only capable of performing an equality test, and that enables performance benefits. 
+
+[^equal-test]: I.e. In this case, a `= true` test/comparison being applied to the `[Hidden]` column's values. Intuitive this is one of the most computationally cheap operations possible.  
+    NB: The `Table.RemoveMatchingRows`'s 2nd argument must be a list of records, and thus in the form of `{[field1 = val1, field2 = val2, ...], ...}`. I.e. `Table.RemoveMatchingRows` Can't use inequality or greater/lesser tests (e.g. `{[f1 <> val1, f2 < v2]}` is invalid).
+
+<div markdown="1" class="scrolling-div-class">
+![Remove Hidden Files](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/02-RemoveHiddenFileRows-1316w75h.jpg){: .img-lazy width=1316 height=75 style="aspect-ratio:1316/75;" }
+{: .mt-1 }
+</div>
+
+{:style="counter-reset:none"}
+3. `AddPrep4Future_HasX29Cols_Col`: As observed above, we conspicuously 'stop short,' when it would be easy to immediately create the `[HasX29Cols]` column in its ultimate `type logical` form. Thus, debuggability is improved by the ability to preview the relevant header-name values.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {: style="counter-reset:none"}
 2. `RemoveHiddenFileRows`: Removing hidden files requires transforming the previous `[Attributes]` column from a `record` to its `type logical` (i.e. Boolean) "Hidden" field.
