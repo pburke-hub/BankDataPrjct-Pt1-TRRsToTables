@@ -50,13 +50,17 @@ NB: In PQFLang, enclosing characters in " or ' denotes a `type text` value.
 <!-- Can get below link via: https://github.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/blob/main/docs/assets/images/F01/07_Output_Tbl-520w77h.jpg?raw-true i.e. the ?raw=true url query parameter-->
 
 A table with rows like the following:
+{: .mb-1 }
 
-<div markdown="1" class="scrolling-div-class my-1">
+<div markdown="1" class="scrolling-div-class">
 ![Output table](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/07_Output_Tbl-520w77h.jpg){: .img-noloadingppty width="520px" height="77px" style="aspect-ratio:520/77;" }
 {: .my-1 }
 </div>
 
-However, this small table does not reflect the valuable tasks that this script performs. These include: 
+However, this small table does not reflect the valuable tasks that this script performs.
+{: .mt-1 }
+
+These include: 
 * Reviewing the directory's files, and removing any irrelevant files (e.g. any .pdf or .docx files); and
 * Efficiently determining whether a TRR-file is an old-style (x28-columns) or new-style (x29-columns) TRR statement. 
   * ('Efficient,' because rather than scanning through a TRR's entire file, we only read in a precisely specified cell-location within the file.)
@@ -65,7 +69,9 @@ However, this small table does not reflect the valuable tasks that this script p
 ## Observations: 
 {: .fs-5 .lh-default }
 
-1. As the width of the below images reveals, the script retains multiple columns, and only removes them as one of the last steps. This is less efficient than removing those columns ASAP. However, this inefficiency is trumped by the debugging value of being able to preview them (as in the images below). 
+1. As below, this script mostly transforms a table with many columns, only to remove most of them as one of the last steps. This is less efficient than removing those columns ASAP. However, this inefficiency is trumped by the debugging value of being able to easily preview them.[^preview]
+
+[^preview]: Thus the images in the below Preview Snippets section.
 
 2. Similarly, the script could have immediately produced boolean values when the `[HasX29Cols]` column was created. Instead, an extract of the header-name of each file's 28th column is initially displayed. That way, a debugger can scan through the preview, and can easily detect unexpected behaviour, according to whether any of the initial `[HasX29Cols]` columns are text other than "Bank" or "Name".
 
@@ -73,6 +79,15 @@ However, this small table does not reflect the valuable tasks that this script p
 
 
 ## Preview Snippets:
+{: .fs-5 .lh-default .mb-4 }
+
+1. `FolderInfo`  
+   PQFLang's `Folder.Contents` function gets a table of information about the files in the folder.  
+   Usefully, The table's rows include:
+   * the file-name (inclusive of file extension); 
+   * the file's extension (inclusive of the "." prefix); 
+   * the file's content as a `type binary` value; and 
+   * a `record` containing much more information about the file.
 
 <div markdown="1" class="scrolling-div-class my-1">
 ![Folder Info](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/01-FolderInfo-1318w109h.jpg){: .img-lazy width=1318 height=109 style="aspect-ratio:1318/109;" }
