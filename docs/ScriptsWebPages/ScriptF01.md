@@ -82,7 +82,12 @@ These include:
 ## Preview Snippets:
 {: .fs-5 .lh-default .mb-4 }
 
-{: .mb-1 }
+<div markdown="1" class="scrolling-div-class mt-4">
+![Folder Info](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/01-FolderInfo-1318w109h.jpg){: .img-lazy width=1318 height=109 style="aspect-ratio:1318/109;" }
+{: .my-1 }
+</div>
+
+{: .my-1 }
 1. `FolderInfo`: PQFLang's `Folder.Contents` function gets a table of information about the files in the folder. Usefully, The table's rows include:
    * the file-name (inclusive of file extension); 
    * the file's extension (inclusive of the "." prefix); 
@@ -90,9 +95,9 @@ These include:
    * a `record` containing much more information about the file.
 {: .mb-1 }
 
-<div markdown="1" class="scrolling-div-class">
-![Folder Info](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/01-FolderInfo-1318w109h.jpg){: .img-lazy width=1318 height=109 style="aspect-ratio:1318/109;" }
-{: .mt-1 }
+<div markdown="1" class="scrolling-div-class mt-4">
+![Remove Hidden Files](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/02-RemoveHiddenFileRows-1316w75h.jpg){: .img-lazy width=1316 height=75 style="aspect-ratio:1316/75;" }
+{: .my-1 }
 </div>
 
 {: style="counter-reset:none" }
@@ -105,9 +110,9 @@ These include:
 [^equal-test]: I.e. In this case, a `= true` test/comparison being applied to the `[Hidden]` column's values. Intuitive this is one of the most computationally cheap operations possible.  
     NB: The `Table.RemoveMatchingRows`'s 2nd argument must be a list of records, and thus in the form of `{[field1 = val1, field2 = val2, ...], ...}`. I.e. `Table.RemoveMatchingRows` Can't use inequality or greater/lesser tests (e.g. `{[f1 <> val1, f2 < v2]}` is invalid).
 
-<div markdown="1" class="scrolling-div-class">
-![Remove Hidden Files](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/02-RemoveHiddenFileRows-1316w75h.jpg){: .img-lazy width=1316 height=75 style="aspect-ratio:1316/75;" }
-{: .mt-1 }
+<div markdown="1" class="scrolling-div-class mt-4">
+![Prep For HasX29Cols](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/03-AddPrep4Future_HasX29Cols-1477w112h.jpg){: .img-lazy width=1477 height=112 style="aspect-ratio:1477/112;" }
+{: .my-1 }
 </div>
 
 {:style="counter-reset:none"}
