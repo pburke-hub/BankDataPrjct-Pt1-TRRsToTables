@@ -25,19 +25,21 @@ Find this script at [this Github repo].
 </blockquote> -->
 
 ## Script Name:
-{: .fs-4 .lh-default }
+{: .fs-4 .lh-default .mb-4 }
 
 F01_FolderProcessing
-{: .lh-tight }
+{: .lh-tight .mb-1 }
 
 (*F*01 because the script/query gets a functions.)
-{: .fs-3 .lh-tight }
+{: .fs-3 .lh-tight .mt-2 .pl-4 }
 
 ## Input:
-{: .fs-4 .lh-default }
+{: .fs-4 .lh-default .mb-3 }
 
 A simple directory-path `type text` value.  
+
 In our example it is: `"C:\Sample_TRRs"`
+{: .mb-1 }
 
 NB: In PQFLang, enclosing characters in " or ' denotes a `type text` value. 
 {: .fs-3 .lh-tight .mt-1 .pl-4 }
@@ -51,6 +53,7 @@ A table with rows like the following:
 
 <div markdown="1" class="scrolling-div-class my-1">
 ![Output table](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/07_Output_Tbl-520w77h.jpg){: .img-noloadingppty width="520px" height="77px" style="aspect-ratio:520/77;" }
+{: .my-1 }
 </div>
 
 However, this small table does not reflect the valuable tasks that this script performs. These include: 
