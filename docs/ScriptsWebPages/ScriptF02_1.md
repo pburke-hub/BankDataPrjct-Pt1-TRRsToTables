@@ -90,7 +90,7 @@ Having a unique identifier will be vital to the database system/schema that will
 {: .my-1 }
 </div>
 
-{:style="counter-reset:none"}
+<!-- {:style="counter-reset:none"} -->
 3. `Add_TotalRows_Col`: Now that we've got a `type table` object for each statement, we can use it to get the total[^total] number of rows in each statement.  
    Again not evident from the image, to get the row-totals, our script decided to apply its own UDFunc,[^UDFunc] rather than use PQFLang's built-in `Table.AddColumn` function.  
    This is being pedantic, and may actually be less efficient, since the `Table.AddColumn`-method involves only a single call of a built-in function.  
@@ -108,7 +108,7 @@ Having a unique identifier will be vital to the database system/schema that will
 {: .my-1 }
 </div>
 
-{:style="counter-reset:none"}
+{:style="counter-reset:step-counter 4"}
 4. `Tbls_Tformd`: Our final step performs two operations. (1) It adds a from-0 index column to each of the `[Content]` column's table values. (2) It then transforms each `[Content]` column value from a `type table` value to a `type list` value.  
    More specifically, each table column is transformed into a `list`, and then all those `list`s are wrapped/enclosed in another `list`.  
    Apparently, in order to combine our statements' tables, we're planning to combine each corresponding column's lists, and then construct the combined-table from the `{combod_col1s_List, combod_col2s_List, ...}` `list` value.  
