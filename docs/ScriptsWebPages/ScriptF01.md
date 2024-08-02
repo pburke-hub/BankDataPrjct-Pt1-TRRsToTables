@@ -100,7 +100,7 @@ These include:
 {: .my-1 }
 </div>
 
-{: style="counter-reset:none" }
+{:style="counter-reset:step-counter 1"}
 2. `RemoveHiddenFileRows`: Removing hidden files requires transforming the previous `[Attributes]` column from a `record` to its `type logical` (i.e. Boolean) "Hidden" field.
    Because we're confident that the "Hidden" field will only take values of `true` and `false`, we use the `Table.RemoveMatchingRows` function instead of the `Table.SelectRows` function.  
    `Table.RemoveMatchingRows` appears to be analogous to the `List.RemoveMatchingItems` function. Unlike `Table.SelectRows`, we're able to specify (via the 3rd argument) that row removal/selection depends *only* on the `[Hidden]` column, and that it depends on equality testing it.[^equal-test] Therefore, under-the-hood, implemented in lower-level languages, this function presumably utilises more assumptions, and thereby uses more specialised and efficient code.  
@@ -115,7 +115,7 @@ These include:
 {: .my-1 }
 </div>
 
-{:style="counter-reset:none"}
+{:style="counter-reset:step-counter 1"}
 3. `AddPrep4Future_HasX29Cols_Col`: As observed above, we conspicuously 'stop short,' when it would be easy to immediately create the `[HasX29Cols]` column in its ultimate `type logical` form. Thus, debuggability is improved by the ability to preview the relevant header-name values.
 
 
@@ -155,10 +155,12 @@ These include:
 	Similarly, `Table.SelectRows` depends on the UDF we pass in as the 2nd argument and is defined using the high-level PQFLang. In contrast, `Table.RemoveMatchingRows` is really provided with a value rather than a function, ergo, it apparently implements the iterative remove/select computation using lower-level (and thus more performant) code.
 [^equal-test]: I.e. In this case, a `= true` test/comparison being applied to the `[Hidden]` column's values. Notably, this is a relatively simple operation. Whereas, e.g. `(x * 1.27)^0.5 < 3.14` is a more complex and computationally expensive operation.
 
+
 <div markdown="1" class="scrolling-div-class">
 ![Prep For HasX29Cols](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/03-AddPrep4Future_HasX29Cols-1477w112h.jpg){: .img-lazy width=1477 height=112 style="aspect-ratio:1477/112;" }
 </div>
 
+{:style="counter-reset:step-counter 2"}
 3. As observed above, we conspicuously 'stop short,' when it would be easy to immediately create the `[HasX29Cols]` column in its ultimate `type logical` form. Thus, debuggability is improved by the ability to preview the relevant header-name values.
 
 
@@ -166,6 +168,7 @@ These include:
 ![Add HasX29Cols](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/04-Add_HasX29Cols-1481w113h.jpg){: .img-lazy width=1481 height=113 style="aspect-ratio:1481/113;" }
 </div>
 
+{:style="counter-reset:step-counter 3"}
 4. A simple transform to get the `[HasX29Cols]` column in `type logical` form.
 
 
@@ -173,6 +176,7 @@ These include:
 ![Remove Irrelevs](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/05-RemoveIrrelevs-517w73h.jpg){: .img-lazy width=517 height=73 style="aspect-ratio:517/73;" }
 </div>
 
+{:style="counter-reset:step-counter 4"}
 5. Removing columns that don't impact our ultimate bank-statements table/data. (Although, as discussed, may be useful clues to a debugger.)
 
 
@@ -180,6 +184,7 @@ These include:
 ![Error Check](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/06-HasX29_ErrorCheck-178w86h.jpg){: .img-lazy width=178 height=86 style="aspect-ratio:178/86;" }
 </div>
 
+{:style="counter-reset:step-counter 5"}
 6. We can rely on the `try` statement returning a record with a "HasError" field, and if there is no error, then also a "Value" field. The `record` may be an unnecessarily large and detailed data structure for this error-checking task. However, it promotes readable and intuitive code.
 	* Even though PQFLang doesn't provide the typical 'for-loop' etc. control flow mechanisms that most programming languages do, we can still add break-conditions to iterative calculations. Here, this is achieved by using `Table.FirstValue`.
 
@@ -188,4 +193,5 @@ These include:
 ![Output](https://raw.githubusercontent.com/pburke-hub/BankDataPrjct-Pt1-TRRsToTables/main/docs/assets/images/F01/07_Output_Tbl-520w77h.jpg){: .img-lazy width=520 height=77 style="aspect-ratio:520/77;" }
 </div>
 
+{:style="counter-reset:step-counter 6"}
 7. Finally, because our example data does not raise an error, we output the same data as in step 5.
