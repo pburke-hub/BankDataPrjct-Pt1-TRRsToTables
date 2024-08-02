@@ -1,7 +1,7 @@
 ---
 layout: default
 title: F01 - Directory Path To Files-Info Table 
-parent: The Scripts
+parent: Scripts
 nav_order: 301
 ---
 
