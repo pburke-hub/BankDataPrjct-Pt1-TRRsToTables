@@ -1,9 +1,18 @@
 ---
 layout: default
 title: The Scripts
+parent: Scripts
+nav_order: 300
+---
+
+<!-- 
+---
+layout: default
+title: The Scripts
 has_children: true
 nav_order: 300
 ---
+--> 
 
 <!-- For now, let's have this as a parent page. However, ultimately, let's have it as something which has the ToC and highlights the order of and relations of the scripts (E.g. how `Tbl_AddLstCol` is a genuine helper-func.) -->
 
