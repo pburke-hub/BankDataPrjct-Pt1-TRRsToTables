@@ -123,7 +123,7 @@ For example, if we want to apply the `Text.Upper` function to our `[Type]` colum
 
 {:style="counter-reset:step-counter 2"}
 3. `Matching_Col_Lsts`: This preview image shows a `list`. It's a 22-item `list`, with the items corresponding to each statement-column remaining after those 7 irrelevant columns were removed. Accordingly, each item itself contains as many `lists` as there are files/statements that we're processing (which in this case/preview is 2 files).
-   To achieve this we've used a zip-function (namely `List.Zip`). If 2 N-item data structures (e.g. `{'a', 'b', 'c'}` & `{'d', 'e', 'f'}`) are passed to a zip-function, then N 2-item data structures will be returned (i.e. `{{'a', 'd'}, {'b', 'e'}, {'c', 'f'}}`). (This isn't a comprehensive description of zip functions, but surely gives the picture ...)
+   To achieve this we've used a zip-function (namely `List.Zip`). If 2 N-item data structures (e.g. `{'a', 'b', 'c'}` & `{'d', 'e', 'f'}`) are passed to a zip-function, then N 2-item data structures will be returned (i.e. `{% raw %}{{'a', 'd'}, {'b', 'e'}, {'c', 'f'}}{% endraw %}`). (This isn't a comprehensive description of zip functions, but surely gives the picture ...)
 
 
 <div markdown="1" class="scrolling-div-class mt-7">
