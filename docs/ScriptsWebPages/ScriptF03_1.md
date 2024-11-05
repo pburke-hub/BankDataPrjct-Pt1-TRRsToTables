@@ -3,8 +3,9 @@ layout: default
 title: F03_1 - Combine Tables, Only Relevant Columns
 parent: Scripts
 nav_order: 304
-# Reacheed snippet 2 and stopped proof-reading
 ---
+
+<!-- # Reacheed snippet 2 and stopped proof-reading <- had this in the front matter as a comment-line. Suspect it may have caused an issue with jekyll/Liquid.  -->
 
 ## F03_1 - Combine Tables, Only Relevant Columns  
 {: .fs-6 .text-center .fw-700 .lh-default }
