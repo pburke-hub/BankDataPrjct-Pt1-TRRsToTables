@@ -8,6 +8,8 @@ nav_order: 306
 ## F03_3 - Typecast Columns, Clean Text, Get \[Date\]  
 {: .fs-6 .text-center .fw-700 .lh-default }
 
+Just adding some text here to make an alteration and trigger a re-depolyment of the github pages website.
+
 ---
 
 <div markdown="1" class="ghrepo-topdiv">
